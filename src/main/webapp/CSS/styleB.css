@@ -1,0 +1,113 @@
+div.block_horizontale { 
+	background-color: yellow; 
+	display: inline-block; 
+	width: 100%;
+}
+
+body {
+	background-color: black; 
+	padding: 20%;	
+}
+
+div.main {
+	padding: 0 auto;
+	background-color: yellow;
+	height: 100%;
+	
+	/*  le cercle 
+	background: yellow;
+	height: 690px; 
+	border-radius: 564px; 
+	border: 2px solid orange;	
+
+	vertical-align:  20px;    */
+}
+
+div.mon_tableau{
+	background-color: orange; 	
+	align-self:  center;
+}
+
+div table {
+	margin: 0 auto;
+}
+
+div.icone {
+	background-color: red; 
+	display: inline-block;
+	float: left;
+}
+div.icone img{
+	width: 150px;
+	height: 170px;
+	display: block;
+}
+
+
+
+div.pseudo {
+	background-color: blue;
+	display:block;
+	float: left;
+	height : 100px;
+
+}
+
+div.titre_tableau {
+	background-color: grey; 
+	display: inline-block; 
+	width: 100%;
+	text-align: center;
+}
+
+div.Demarrerpartie {
+	text-align: center;
+
+}
+
+
+
+div h4 {
+	text-align: center;
+	display: block;
+}
+
+div table th {
+background-color: #808080;
+}
+
+div table td {
+background-color: #C0C0C0;
+}
+
+div#entete_tab{
+	text-align: center;
+}
+
+
+ table tr {
+/* La transition s'applique à la fois sur la largeur et la hauteur, avec une durée d'une seconde. */
+-webkit-transition: all 1s ease; /* Safari et Chrome */
+}
+table tr:hover{
+/* L'image est grossie de 25% */
+-webkit-transform:scale(2.01); /* Safari et Chrome */
+}
+
+/* Flou */
+ img.foto {
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	 
+}
+img.foto:hover {
+	-webkit-filter: blur(0);
+	filter: blur(0);
+}
+img.sort{
+	height: 170px; 
+	width:180px;
+	float: right;
+}

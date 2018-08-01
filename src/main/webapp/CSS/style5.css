@@ -1,0 +1,34 @@
+body{
+    background-image: url("CSS/1.jpg");
+}
+div.joueursEnemi{
+    display: flex;
+    flex-wrap: wrap;
+}
+p{
+    margin-left: 10px;
+}
+
+div.Joueur{
+    border-style: dotted;
+    border-bottom-width: 6px;
+    border-bottom-color: yellow;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+h1{
+        text-align: center;
+}
+div.player{
+    display: flex;
+    flex-wrap: wrap;
+    border-style: dotted;
+    border-bottom-width: 8px;
+    border-bottom-color: blue;
+    border-radius: 20px;
+    margin: 10px;
+}
+header{
+    display: flex;
+}

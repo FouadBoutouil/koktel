@@ -1,0 +1,103 @@
+html{
+
+}
+body{
+    background-image: url("4.jpg");
+    background-size: 100%;
+}
+
+input{
+    background-color: yellowgreen;
+    background-image: radial-gradient(orange, orange);
+    width:150px;
+    line-height:50px;
+    text-align:center;
+    vertical-align:middle;
+    color:black;
+}
+
+span{
+    margin-left: 10%;
+}
+
+input:hover{
+    background:url(images/bouton-noir-2.png) no-repeat;
+    color: yellow;
+}
+div.boite{
+
+    color: yellow;
+    margin: 0px;
+    padding: 0px;
+}
+div.image{
+    z-index: 0;
+    form input{
+        background-color: yellowgreen;
+    }
+}
+div.milieu{
+    height: 20vh;
+    margin-top: 10vh;
+}
+div.joueursEnemi{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8vh;
+}
+p{
+    margin-left: 10px;
+}
+
+div.Joueur{
+    padding: 1%;
+    /* border-style: dotted; */
+    border-bottom-width: 6px;
+    border-bottom-color: yellow;
+    border-left-color: yellow;
+    border-left-style: double;
+    border-right-color: yellow;
+    border-right-style: double;
+    border-width: 8px;
+    border-bottom-color: cornflowerblue;
+    border-radius: 47px;
+    /* margin: 6px; */
+    border-left-style: double;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+img.logo{
+    width: 40%;
+    height: 100%;
+    border-radius: 40px 0px 0px 40px;
+}
+
+div.player{
+    display: flex;
+    flex-wrap: wrap;
+    border-style: dotted;
+    border-bottom-width: 8px;
+    border-bottom-color: blue;
+    border-radius: 20px;
+    margin: 10px;
+    height: 25vh;
+    overflow-y: scroll;
+}
+header{
+    display: flex;
+    justify-content: flex-start;
+    height: 170px;
+    border-top-style: double;
+    border-color: greenyellow;
+    border-width: 20px;
+    border-radius: 50px;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Merienda', cursive;
+    position: absolute;
+    z-index: 2;
+    margin-left: 32%;
+}

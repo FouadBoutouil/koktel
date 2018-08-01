@@ -1,0 +1,32 @@
+body{
+    color: yellowgreen;
+    background-image: url(pre.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Nosifer', cursive;
+
+}
+A {
+    text-decoration: none !important;
+}
+p{
+    margin-top: 19vh;
+    margin-left: 101vh;
+    font-size: 7vh !important;
+}
+div.col-lg-12{
+    top: 35vh;
+    left: 100vh;
+}
+p.m {
+    font-family: 'Nosifer', cursive !important;
+}
+div#titreJeu{
+    font-family: Chela One !important;
+    background-image: url(fond.gif);
+    width: 32vh;
+    background-size: 20vh;
+    padding-top: 5vh;
+    font-size: 5vh;
+    margin-top: 1vh;
+}

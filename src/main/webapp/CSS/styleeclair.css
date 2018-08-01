@@ -1,0 +1,109 @@
+div.block_horizontale { 
+	display: inline-block; 
+	width: 100%;
+}
+
+body {
+	background-image:url("fond33.gif");
+	background-repeat:no-repeat;
+	background-size: 100% 100%;
+	margin: 10% 0 ;
+
+}
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+div.main {
+	padding: 0 auto;
+	height: 70%;
+	position: 200px;
+	width: 60%;
+
+     margin-left: 240px;
+}
+
+div.mon_tableau{	
+	align-self:  center;
+}
+
+div table {
+	margin: 0 auto;
+	background-color: 	rgba(255,255,0,0.5);
+	font-family: nosifer;
+	font-size: 20px;
+}
+
+div.icone {
+	background-color: red; 
+	display: inline-block;
+
+	float: left;
+}
+div.icone img{
+	width: 100px;
+	height: 100px;
+	display: block;
+	opacity: 40%;
+	visibility: none;
+}
+
+
+
+div.pseudo {
+	display:block;
+	float: left;
+	height : 100px;
+	background-image: url("fond.gif");
+	color: red;
+	font-size: 20px;
+	font-family: nosifer;
+
+}
+
+div.titre_tableau {
+	display: inline-block; 
+	width: 100%;
+
+}
+
+div h4 {
+	text-align: center;
+	display: block;
+	font-family: nosifer;
+	font-size: 36px;
+	color: red;
+
+}
+
+div table th {
+background-color: #808080;
+}
+
+div table td {
+color: white;
+}
+
+div#entete_tab{
+	text-align: center;
+}
+
+
+ table tr {
+/* La transition s'applique à la fois sur la largeur et la hauteur, avec une durée d'une seconde. */
+-webkit-transition: all 1s ease; /* Safari et Chrome */
+}
+table tr:hover{
+/* L'image est grossie de 25% */
+-webkit-transform:scale(2.01); /* Safari et Chrome */
+}
+
+
+
+img.sort{
+	height: 170px; 
+	width:180px;
+	float: right;
+}

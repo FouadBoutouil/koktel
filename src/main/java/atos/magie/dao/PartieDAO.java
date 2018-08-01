@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package atos.magiemagie.dao;
+package atos.magie.dao;
 
 import atos.magie.entity.Carte;
 import atos.magie.entity.Joueur;

@@ -9,21 +9,30 @@ package atos.magie.service;
 import atos.magie.entity.Carte;
 import atos.magie.entity.Joueur;
 import atos.magie.entity.Partie;
-import atos.magiemagie.dao.CarteDAO;
-import atos.magiemagie.dao.JoueurDAO;
-import atos.magiemagie.dao.PartieDAO;
+import atos.magie.dao.CarteDAO;
+import atos.magie.dao.JoueurDAO;
+import atos.magie.dao.PartieDAO;
+import atos.magie.dao.PartieDaoCrud;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Administrateur
  */
+@Transactional
+@Service
 public class PartieService {
 
+    @Autowired
+    private PartieDaoCrud daoCrud;
+    
     private CarteDAO carteDao = new CarteDAO();
     private PartieDAO dao = new PartieDAO();
     private JoueurDAO daoJoueur = new JoueurDAO();
@@ -132,13 +141,13 @@ public class PartieService {
     }
 
     public List<Partie> listePartiesNonDemaree() {
-        return dao.listePartiesNonDemaree(); //         
+        return daoCrud.listePartiesNonDemaree(); //         
     }
 
     public Partie creerNouvellePartie(String nom) {
         Partie p = new Partie();
         p.setNom(nom);
-        dao.ajouter(p);
+        daoCrud.save(p);
         return p;
 
     }
@@ -157,19 +166,19 @@ public class PartieService {
     public Partie demarrerPartie(long idPartie) {
 
         // recherche la partier par son id
-        Partie p = dao.rechercherPartieParID(idPartie);
+        Partie p = daoCrud.findOne(idPartie);
         JoueurService joueurService = new JoueurService();
         //Joueur joueurAct = new Joueur();
 
         // erreur si moins de deux joueurs dans la partie
         // le teste recuper la liste des joueurs d'une partie et compare le size a deux
-        if (3 < 2) {         // remettre la condition 3 < 2 ct juste un test 
+        if ( p.getJoueurs().size() < 2) {         // remettre la condition 3 < 2 ct juste un test 
 
             throw new RuntimeException("il faut au moins deux joueurs");
         }
 
         //    passe le joueur d'ordre un a a la main 
-        Joueur monJoueur = dao.retourneJoueurDordreParametreDansPartie(idPartie, 1);
+        Joueur monJoueur = daoCrud.retourneJoueurDordreParametreDansPartie(idPartie, 1);
         monJoueur.setEtat(Joueur.EtatJoueur.aLamain);
         daoJoueur.modifier(monJoueur);
 

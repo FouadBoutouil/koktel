@@ -8,7 +8,7 @@ package atos.magie.main;
 import atos.magie.entity.Partie;
 import atos.magie.service.JoueurService;
 import atos.magie.service.PartieService;
-import atos.magiemagie.dao.PartieDAO;
+import atos.magie.dao.PartieDAO;
 import java.util.List;
 import java.util.Scanner;
 

@@ -7,7 +7,8 @@ package atos.magie.servlet;
 
 import atos.magie.entity.Joueur;
 import atos.magie.service.JoueurService;
-import atos.magiemagie.dao.JoueurDAO;
+import atos.magie.spring.AutowireServlet;
+import atos.magie.dao.JoueurDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Administrateur
  */
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends AutowireServlet {
     // affiche la page de login 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

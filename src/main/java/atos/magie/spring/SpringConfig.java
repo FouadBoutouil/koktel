@@ -22,8 +22,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 //@SpringBootApplication
 //@EnableAutoConfiguration
-@ComponentScan(basePackages = "streaming") 
-@EnableJpaRepositories(basePackages = "streaming")
+@ComponentScan(basePackages = "atos.magie") 
+@EnableJpaRepositories(basePackages = "atos.magie")
 @EnableScheduling
 public class SpringConfig {
 
@@ -36,7 +36,7 @@ public class SpringConfig {
 
     @Bean
     public EntityManagerFactory entityManagerFactory() {
-        return Persistence.createEntityManagerFactory("streaming_PU");
+        return Persistence.createEntityManagerFactory("PU");
     }
 
 }

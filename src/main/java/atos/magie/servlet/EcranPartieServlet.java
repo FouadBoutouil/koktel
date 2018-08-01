@@ -9,6 +9,7 @@ import atos.magie.entity.Joueur;
 import atos.magie.entity.Partie;
 import atos.magie.service.JoueurService;
 import atos.magie.service.PartieService;
+import atos.magie.spring.AutowireServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Administrateur
  */
 @WebServlet(name = "EcranFinal", urlPatterns = {"/EcranFinal"})
-public class EcranPartieServlet extends HttpServlet {
+public class EcranPartieServlet extends AutowireServlet {
 
     private JoueurService serviceJou = new JoueurService();
     private PartieService servicePar = new PartieService();

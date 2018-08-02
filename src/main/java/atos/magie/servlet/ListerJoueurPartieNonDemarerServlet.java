@@ -14,15 +14,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author Administrateur
  * joueur table affiche une liste de tous les joueurs dazns table 
  */
-@WebServlet(name = "partieNonDémarer", urlPatterns = {"/JoueurPartieNonDem"})
+@WebServlet(name = "partieNonDemarer", urlPatterns = {"/JoueurPartieNonDem"})
 public class ListerJoueurPartieNonDemarerServlet extends AutowireServlet {
-    PartieService serviceP = new PartieService();
+    
+    @Autowired     
+    PartieService serviceP;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // je dois recuperer l'id de la partiee

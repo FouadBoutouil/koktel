@@ -30,3 +30,10 @@ div#titreJeu{
     font-size: 5vh;
     margin-top: 1vh;
 }
+#lignePartie{
+    margin-bottom: 10px;
+}
+
+.btnRejoindrePartie{
+    width: 180px;
+}

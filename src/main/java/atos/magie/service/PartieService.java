@@ -10,7 +10,9 @@ import atos.magie.entity.Carte;
 import atos.magie.entity.Joueur;
 import atos.magie.entity.Partie;
 import atos.magie.dao.CarteDAO;
+import atos.magie.dao.CarteDaoCrud;
 import atos.magie.dao.JoueurDAO;
+import atos.magie.dao.JoueurDaoCrud;
 import atos.magie.dao.PartieDAO;
 import atos.magie.dao.PartieDaoCrud;
 import java.util.ArrayList;
@@ -32,6 +34,10 @@ public class PartieService {
 
     @Autowired
     private PartieDaoCrud daoCrud;
+    @Autowired
+    private JoueurDaoCrud daoJoueurCrud;
+    @Autowired
+    private CarteDaoCrud daoCarteCrud;
     
     private CarteDAO carteDao = new CarteDAO();
     private PartieDAO dao = new PartieDAO();
@@ -48,7 +54,7 @@ public class PartieService {
     private void invisible(long idPartie) {
         Joueur jouerLanceurDeSort = daoJoueur.rechercheJoueurQuiAlaMain(idPartie);
         List<Carte> maMain = jouerLanceurDeSort.getCartes();
-        Partie maPartie = dao.rechercherPartieParID(idPartie);
+        Partie maPartie = daoCrud.findOne(idPartie);
 
         for (Joueur j : maPartie.getJoueurs()) {
 
@@ -63,14 +69,14 @@ public class PartieService {
     }
 
     private void divine(long idPartie) {
-        Partie maPartie = dao.rechercherPartieParID(idPartie);
+        Partie maPartie = daoCrud.findOne(idPartie);
         for (Joueur j : maPartie.getJoueurs()) {
-            afficheMain(idPartie);
+            daoCarteCrud.afficheMain(idPartie);
         }
     }
 
     private void afficheMain(long idPartie) {
-        Partie maPartie = dao.rechercherPartieParID(idPartie);
+        Partie maPartie = daoCrud.findOne(idPartie);
         List<Joueur> maTable = maPartie.getJoueurs();
         // boucle parcours les joueurs de la table
         for (Joueur j : maTable) {
@@ -85,7 +91,7 @@ public class PartieService {
 
     // cette fonction change lk'état du joueur a sommeil profond
     private void dodo(long idPartie, long idJoueurCible) {
-        Partie maPartie = dao.rechercherPartieParID(idPartie);
+        Partie maPartie = daoCrud.findOne(idPartie);
         Joueur victime = dao.rechercherJoueurParID(idJoueurCible);
         victime.setEtat(Joueur.EtatJoueur.SommeilProfond);
     }
@@ -123,7 +129,7 @@ public class PartieService {
     private void filtreAmour(long idPartie) {
         // recupere les deux joueurs 
         // on aplique la fonction voler carte et le nombre de carte c'est modulo deux '
-        Partie maPartie = dao.rechercherPartieParID(idPartie);
+        Partie maPartie = daoCrud.findOne(idPartie);
         Joueur joueurLanc = daoJoueur.rechercheJoueurQuiAlaMain(idPartie);
         // recupere l id du joueur cible par l'utilisateur rentree par lme clavier
         System.out.println("!!!! Veuillez rentrer l' id de votre Victime !!!!");
@@ -155,7 +161,7 @@ public class PartieService {
     // fonction qui teste le nombre de jolueur qui sont a nonPerdu sil est seperieur a un la pertie n'est pas finie encore
     //  si cette fonction renvoi vrai c a d que le joueur a gagné c a d la partie estg fini ( théoriquement )
     public Boolean siTousLesAutreJoueurOntPerdu(long idPartie) {
-        List<Joueur> list = dao.siTousLesAutreJoueurOntPerduDAOOOOOOOOOOOO(idPartie);
+        List<Joueur> list = daoJoueurCrud.siTousLesAutreJoueurOntPerduDAOOOOOOOOOOOO(idPartie);
         // on verefi le nombre de joueur a letat perdu sil est egale ou superieur a joueur -1  
         if (list.size() == dao.nbrJoueurPartie(idPartie) - 1) {
             return true;
@@ -178,7 +184,7 @@ public class PartieService {
         }
 
         //    passe le joueur d'ordre un a a la main 
-        Joueur monJoueur = daoCrud.retourneJoueurDordreParametreDansPartie(idPartie, 1);
+        Joueur monJoueur = daoJoueurCrud.retourneJoueurDordreParametreDansPartie(idPartie,1);
         monJoueur.setEtat(Joueur.EtatJoueur.aLamain);
         daoJoueur.modifier(monJoueur);
 
@@ -208,7 +214,7 @@ public class PartieService {
         //--------------------------------------------------------------------------// CAS 2 : joueur dans partie < 1                                                                
 
         // recupere lordre max de la partie et on le stock dans une variable pour ne pas le calculer a chaque fois
-        long ordreMax = dao.joueurOrdreMaxDansLaPartie(idPartie);
+        long ordreMax = daoJoueurCrud.joueurOrdreMaxDansLaPartie(idPartie);
         Joueur joueurEvalue = joueurQuiAlaMain;
 
         // on fait une boucle qui permet de determiner le nouveau joueur qui (attrape) la main
@@ -293,7 +299,7 @@ public class PartieService {
         Carte ingredient1 = new Carte();
         Carte ingredient2 = new Carte();
         //recuperer  joueur lanceur de sort
-        Partie maPartie = dao.rechercherPartieParID(idPartie);
+        Partie maPartie = daoCrud.findOne(idPartie);
         //Joueur jouerLanceurDeSort = daoJoueur.rechercheJoueurQuiAlaMain(idPartie);
         // recuperer la liste des cibles 
         //List<Joueur> lesJoueurs = maPartie.getJoueurs();
@@ -426,9 +432,9 @@ public class PartieService {
     }
 
     public List<Joueur> afficherPartieNonDemarer(long id) {
-        PartieDAO dao = new PartieDAO();
-        Partie c = dao.rechercherPartieParID(id);
-        return dao.joueurPartieNonDemarer(id);
+        //PartieDAO dao = new PartieDAO();
+        //Partie c = daoCrud.findOne(id);
+        return daoJoueurCrud.joueurPartieNonDemarer(id);
     }
 }
 // cette fonction est valable pour le mode console

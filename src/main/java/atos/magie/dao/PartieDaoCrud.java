@@ -34,15 +34,16 @@ public interface PartieDaoCrud extends CrudRepository<Partie, Long> {
 
     @Query("SELECT j FROM Joueur j JOIN j.partieNow p WHERE "
     
-            + " p.id=atos.magie.entity.Partie.idPartie and j.ordre =atos.magie.entity.Joueur.partieNow.ordre ")
+            + " p.id=?1 and j.ordre =?2")
     public Joueur retourneJoueurDordreParametreDansPartie(long idPartie, long ordre);
 
-    public List<Joueur> siTousLesAutreJoueurOntPerduDAOOOOOOOOOOOO(long idPartie);
+    //public List<Joueur> siTousLesAutreJoueurOntPerduDAOOOOOOOOOOOO(long idPartie);
+    
+    
+    
 
-    public long joueurOrdreMaxDansLaPartie(long idPartie);
-
-    public List<Carte> afficheMain(long idJoueur);
-
-    public List<Joueur> joueurPartieNonDemarer(long id);
+    //public List<Carte> afficheMain(long idJoueur);
+    
+    //public List<Joueur> joueurPartieNonDemarer(long id);
 
 }

@@ -11,19 +11,19 @@ import atos.magie.entity.Partie;
 import atos.magie.dao.CarteDAO;
 import atos.magie.dao.JoueurDAO;
 import atos.magie.dao.PartieDAO;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Administrateur
  */
+@Transactional
+@Service
 public class JoueurService {
-
+    
     private JoueurDAO dao = new JoueurDAO();
     private PartieDAO daoPartie = new PartieDAO();
     Joueur joueurpass = new Joueur();

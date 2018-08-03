@@ -5,7 +5,10 @@
  */
 package atos.magie.controlleur;
 
+import atos.magie.service.PartieService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,9 +19,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PartieControlleur {
     
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test() {
-        
+    @Autowired
+    private PartieService service;
+    
+    @RequestMapping(value = "/listerParties", method = RequestMethod.GET)
+    public String lister( Model model) {
+        // on charge nos partie avec l'autoweirer
+        model.addAttribute("listePartie", service.listePartiesNonDemaree());
         return "lister-parties.jsp";
     }
 }
